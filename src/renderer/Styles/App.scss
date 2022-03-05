@@ -5,14 +5,16 @@ $orange: #f96e46;
 $yellow: #f9c846;
 $rose: #ffe3e3;
 $cream: #ffffc7;
-$white: #ffffff;
+$white: #fff8f8;
 $black: #000000;
 $darker: 0.0001;
 $brighter: 0.05;
+$green: #008000;
+$green_dark: #036603;
 
 
 body {
-  position: relative;
+  //position: relative;
 
   height: 100vh;
   background: linear-gradient(
@@ -23,9 +25,6 @@ body {
   );
   font-family: sans-serif;
   overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin : 0;
 }
 
@@ -44,6 +43,7 @@ nav {
   left: 0;
   bottom: 0;
   width: 300px;
+  z-index: 100;
   background: linear-gradient(
     200.96deg,
     $white -29.09%,
@@ -52,7 +52,7 @@ nav {
   );
 }
 
-button {
+.svg-button {
   outline: none;
   border: none;
   -webkit-user-select: none;
@@ -66,6 +66,7 @@ button {
   height: 50px;
   border-radius: 50%;
   background: transparent;
+  z-index: 100;
 }
 
 ul,
@@ -79,6 +80,7 @@ ul {
   position: absolute;
   top: 100px;
   width: 230px;
+  z-index: 100;
 }
 
 li {
@@ -143,6 +145,105 @@ li {
 .burger{
   fill: #ffffff;
 }
+.switch {
+  width: 3.2rem;
+  height: 1rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
 
+.switch[data-isOn="true"] {
+  justify-content: flex-end;
+  background-color: $green; 
+}
 
+.handle {
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 40px;
+}
+
+.settings{
+  margin-left:100px;
+  margin-top:100px;
+  position: relative;
+}
+
+.disabled{
+  pointer-events: none;
+}
+.text-container{
+  display: grid;
+  grid-template-columns: 1fr 3fr;  
+  .label{
+    color: $black;
+    width: 60%;
+    padding: .5em 1em;
+    border-radius: .5em;
+    border-bottom: 3px solid $black_coral;
+    margin-bottom: 0.5em;
+    transition: 400ms;
+
+    background-color: transparent;
+    font-weight: bolder;
+  }
+  .input{
+    
+    color: $black;
+    width: 80%;
+    padding: .5em 1em;
+    border-radius: .5em;
+    border-color: transparent;
+    border-bottom: 3px solid $rose;
+    margin-bottom: 1em;
+    transition: 400ms;
+    outline: none;
+    background-color: whitesmoke;
+    font-weight: bolder;
+    &:focus{
+      border-color: $blue;
+    }
+  }
+  .input-small{
+    
+    color: $black;
+    width: 10%;
+    padding: .5em 1em;
+    border-radius: .5em;
+    border-color: transparent;
+    border-bottom: 3px solid $rose;
+    margin-bottom: 1em;
+    transition: 400ms;
+    outline: none;
+    background-color: whitesmoke;
+    font-weight: bolder;
+    &:focus{
+      border-color: $blue;
+    }
+  }
+}
+
+.button-save{
+  position: absolute;
+  bottom: 1;
+  right: 5rem;
+  background-color: $green;
+  color: $white;
+  border-radius: .5em;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  font-size: larger;
+  cursor: pointer;
+  transition: 400ms;
+  &:hover{
+    background-color: $green_dark;
+  }
+}
 
