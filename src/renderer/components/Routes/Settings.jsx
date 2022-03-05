@@ -2,6 +2,8 @@ import React,{useEffect, useRef, useState} from 'react'
 import Switch from '../Switch';
 import {motion} from 'framer-motion';
 const fs = require('fs');
+import logo from "../../../../assets/icon.png";
+
 
 const variants = {
     open: {
@@ -61,7 +63,7 @@ function ToggleSwitch(props){
    return( 
    <>
     <motion.div className='text-container' variants={variants2}>
-        <motion.label className='label'>{props.label}</motion.label>
+        <motion.label  className='label' >{props.label}</motion.label>
         <motion.div>
         <Switch value={props.value}/>
         </motion.div>
@@ -69,6 +71,23 @@ function ToggleSwitch(props){
     </motion.div>
     </>
    )
+}
+
+function Image(props){
+    return(
+        <>
+        <motion.div className='text-container' variants={variants2}>
+        <motion.label className='label' style={{border: "none"}}>{props.label}</motion.label>
+        <motion.div>
+            <motion.img className='logo' src={logo} alt="logo.png"/>
+            <br></br>
+            <motion.input type="file" id="upload" hidden/>
+            <motion.label className='file-upload' for="upload">Cambiar Logo</motion.label>
+        </motion.div>
+
+        </motion.div>
+        </>
+    )
 }
 
 function toDecimal(num){
@@ -100,13 +119,14 @@ function Settings() {
   return (
       <>
       {console.log(settingsref)}
+    <motion.div className='settings-container'>
     <motion.div className='settings' 
     variants={variants}
     initial="closed"
     animate="open"
     exit="exit">
 
-    <TextInput label="Logo:"  value={settings.companyLogo}/>
+    <Image label="Logo:"  value={settings.LogoURL}/>
     <TextInput label="Nombre de la Compañia:" value={loading ? getSettings() : settings.companyName}/>
     <TextInput label="Direccion de la Compañia:" value={settings.companyAddress}/>
     <TextInput label="Numero Telefonico:" value={settings.companyPhone}/>
@@ -120,12 +140,15 @@ function Settings() {
     <NumberInput label="Porcentaje De Impuestos:" value={settings.taxRate}/>
 
     <button className="button-save" onClick={() => {
+
         let data = JSON.stringify(settings);
         fs.writeFileSync('./src/data/settings.json', data);
         alert('Settings Saved');
     }}>Save</button>
 
     </motion.div>
+    </motion.div>
+ 
 
 
       </>
