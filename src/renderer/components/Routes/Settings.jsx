@@ -1,8 +1,11 @@
-import React,{useEffect, useRef, useState} from 'react'
-import Switch from '../Switch';
+import React,{useEffect, useRef, useState, useCallback} from 'react'
 import {motion} from 'framer-motion';
 const fs = require('fs');
 import logo from "../../../../assets/icon.png";
+import { TextInput } from '../misc/TextInput';
+import { NumberInput } from '../misc/NumberInput';
+import { ToggleSwitch } from '../misc/ToggleSwitch';
+import { Whitespace } from '../Table/Whitespace';
 
 
 const variants = {
@@ -14,7 +17,7 @@ const variants = {
     }
   };
 
-  const variants2 = {
+  export const variants2 = {
     open: {
       y: 0,
       opacity: 1,
@@ -37,41 +40,6 @@ const variants = {
         }
       }
   };
-
-function TextInput(props){
-    return(
-        <>
-        <motion.div className='text-container' variants={variants2}>
-            <motion.label className='label'>{props.label}</motion.label>
-            <motion.input className="input" type="text" defaultValue={props.value} />
-        </motion.div>
-        </>
-    )
-}
-function NumberInput(props){
-    return(
-        <>
-        <motion.div className='text-container' variants={variants2}>
-            <motion.label className='label'>{props.label}</motion.label>
-            <motion.input className="input-small" type="number" step=".01" defaultValue={props.value} />
-        </motion.div>
-        </>
-    )
-}
-
-function ToggleSwitch(props){
-   return( 
-   <>
-    <motion.div className='text-container' variants={variants2}>
-        <motion.label  className='label' >{props.label}</motion.label>
-        <motion.div>
-        <Switch value={props.value}/>
-        </motion.div>
-        
-    </motion.div>
-    </>
-   )
-}
 
 function Image(props){
     return(
@@ -117,6 +85,20 @@ function Settings() {
       fs.writeFileSync('./src/data/settings.json', data);
       alert('Settings Saved');
     }
+    const escFunction = useCallback((event) => {
+      if (event.keyCode == 13) {
+        handleSubmit();
+        
+      }
+    }, []);
+  
+    useEffect(() => {
+      document.addEventListener("keydown", escFunction);
+  
+      return () => {
+        document.removeEventListener("keydown", escFunction);
+      };
+    }, [escFunction]);
 
   return (
       <>
@@ -142,7 +124,8 @@ function Settings() {
     <NumberInput label="Porcentaje De Impuestos:" value={settings.taxRate}/>
 
     <motion.button variants={variants2} className="button-save" onClick={handleSubmit}>Guardar</motion.button>
-
+    <Whitespace/>
+    <Whitespace/>
     </motion.div>
     </motion.div>
 

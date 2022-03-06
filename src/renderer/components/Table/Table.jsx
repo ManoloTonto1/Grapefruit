@@ -1,9 +1,13 @@
 import React from 'react'
 import {motion} from 'framer-motion'
+import { Rows } from './Rows';
+import { Header } from './Header';
+import { Whitespace } from './Whitespace';
 
 const fs = require('fs');
 const path = require('path');
 const dir = './data';
+const { dialog } = require('electron')
 
 function init() {
   //return fs.readdirSync(dir).filter(name => path.extname(name) === '.json').map(name => require(path.join(dir, name)));
@@ -17,7 +21,7 @@ const variants = {
     }
   };
 
-  const variants2 = {
+  export const variants2 = {
     open: {
       y: 0,
       opacity: 1,
@@ -43,79 +47,6 @@ const variants = {
   };
 
 
-function Rows(){
-    return(
-        <>
-
-
-
-        <motion.tr variants={variants2}>
-            <Data data="20056"/>
-            <Data data="invoice1.gsi"/>
-            <Data data="15 Marzo 2021"/>
-            <Data data="15 Marzo 2021 18:58"/>
-            <Button type="Preview"/>
-            <Button type="Editar"/>
-            <Button type="Borrar"/>
-
-        </motion.tr>
-        </>
-
-        
-    );
-}
-function Header(){
-    return(
-    <>
-        <TH value="#"/>
-        <TH value="Nombre de el Archivo"/>
-        <TH value="Fecha Creada"/>
-        <TH value="Fecha Modificada"/>
-        <TH value="Preview"/>
-        <TH value="Editar"/>
-        <TH value="Borrar"/>
-    </>
-
-
-    );
-}
-function TH({value}){
-    return(
-        <motion.th>
-            {value}
-        </motion.th>
-    );
-}
-function Data({data}){
-    return(
-        <motion.td>
-            {data}
-        </motion.td>
-    );
-}
-function Button({type}){
-    return(
-        <motion.td>
-            <motion.button>{type}</motion.button>
-        </motion.td>
-    );
-}
-function Whitespace(){
-    return(
-<>
-<br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-</>
-
-    )
-}
-
 function Table() {
   return (
     <motion.div>
@@ -129,6 +60,7 @@ function Table() {
         <Header/>
         </motion.tr>
         </motion.thead>
+        <motion.tbody>
             <Rows/>
             <Rows/>
             <Rows/>
@@ -141,6 +73,8 @@ function Table() {
             <Rows/>
             <Rows/>
             <Rows/>
+        </motion.tbody>
+
 
         </motion.table>
         <Whitespace/>

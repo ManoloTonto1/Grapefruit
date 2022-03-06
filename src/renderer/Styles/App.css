@@ -342,4 +342,76 @@ li {
 .table button:hover {
   background-color: #036603;
 }
+
+.add-button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 85px;
+  left: 9px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #008000;
+  z-index: 80;
+  color: #fff8f8;
+  font-size: x-large;
+  font-weight: 1000;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000e1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 101;
+}
+
+.modal {
+  width: clamp(60%, 25rem, 90%);
+  height: 60%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-10%, #ed2457), color-stop(50%, #0076fc), color-stop(123%, #ad002b));
+  background: linear-gradient(180deg, #ed2457 -10%, #0076fc 50%, #ad002b 123%);
+  margin: auto;
+  padding: 0 2rem;
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
 /*# sourceMappingURL=App.css.map */

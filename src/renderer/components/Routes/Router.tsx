@@ -11,8 +11,8 @@ import Customers from './Customers';
 function Router() {
   const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter={true}>
-        <Nav/>  
+    <AnimatePresence exitBeforeEnter={true} onExitComplete={()=> null}>
+        <Nav />
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<Dashboard/>} />
           <Route path="/Settings" element={<Settings/>} />
