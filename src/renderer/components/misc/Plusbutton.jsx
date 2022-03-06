@@ -7,7 +7,7 @@ export function Plusbutton({click}) {
   };
   const onclick = {
     scale: 0.9,
-    rotate: [0, 270, 270]
+    rotate: [0, 270, 270,270]
   };
   const fadein = {
     hidden: {

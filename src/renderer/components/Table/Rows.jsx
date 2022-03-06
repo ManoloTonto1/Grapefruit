@@ -4,14 +4,15 @@ import { variants2 } from './Table';
 import { Button } from "./Button";
 import { Data } from "./Data";
 
-export function Rows() {
+export function Rows({data}) {
+    data = data.meta;
     return (
         <>
             <motion.tr variants={variants2}>
-                <Data data="20056" />
-                <Data data="invoice1.gsi" />
-                <Data data="15 Marzo 2021" />
-                <Data data="15 Marzo 2021 18:58" />
+                <Data data={data.id} />
+                <Data data={data.name} />
+                <Data data={data.created_at} />
+                <Data data={data.updated_at} />
                 <Button type="Preview" />
                 <Button type="Editar" />
                 <Button type="Borrar" />

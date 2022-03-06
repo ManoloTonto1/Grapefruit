@@ -47,7 +47,7 @@ const variants = {
   };
 
 
-function Table() {
+function Table({data}) {
   return (
     <motion.div>
         <motion.table className='table'
@@ -60,19 +60,12 @@ function Table() {
         <Header/>
         </motion.tr>
         </motion.thead>
+
         <motion.tbody>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
-            <Rows/>
+            {data.map((row) => (
+                <Rows data={row}/>
+            ))}
+
         </motion.tbody>
 
 

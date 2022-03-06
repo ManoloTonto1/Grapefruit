@@ -327,7 +327,6 @@ li {
 }
 
 .table button {
-  background-color: #008000;
   color: #fff8f8;
   border-radius: .5em;
   padding: 0.5em;
@@ -339,8 +338,28 @@ li {
   transition: 400ms;
 }
 
-.table button:hover {
-  background-color: #036603;
+.table .Borrar {
+  background-color: #ff2600;
+}
+
+.table .Borrar:hover {
+  background-color: #cc1e00;
+}
+
+.table .Preview {
+  background-color: #008000;
+}
+
+.table .Preview:hover {
+  background-color: #006600;
+}
+
+.table .Editar {
+  background-color: #0082ff;
+}
+
+.table .Editar:hover {
+  background-color: #006ae3;
 }
 
 .add-button {

@@ -2,6 +2,7 @@
 $blue: #0076fc;
 $darkgrey: #444655;
 $lightgrey:#a8aabc;
+$red: #ff2600;
 $pink:#ed2457;
 $darkpink:#ad002b;
 $white: #fff8f8;
@@ -314,7 +315,7 @@ li {
 
   button{
 
-    background-color: $green;
+    
     color: $white;
     border-radius: .5em;
     padding: 0.5em;
@@ -323,8 +324,26 @@ li {
     font-size: large;
     cursor: pointer;
     transition: 400ms;
+
+
+
+  }
+  .Borrar{
+    background-color: $red;
     &:hover{
-      background-color: $green_dark;
+      background-color: $red * 0.8;
+    }
+  }
+  .Preview{
+    background-color: $green;
+    &:hover{
+      background-color: $green * 0.8;
+    }
+  }
+  .Editar{
+    background-color: $blue * 1.1;
+    &:hover{
+      background-color: $blue * 0.9;
     }
   }
 
