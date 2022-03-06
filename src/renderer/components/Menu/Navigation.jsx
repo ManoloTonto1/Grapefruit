@@ -12,9 +12,9 @@ const variants = {
 };
 
 export const Navigation = (props) => (
-  <motion.ul className={props.active ? null : "disabled"} variants={variants}>
+  <motion.ul  className={props.active ? null : "disabled"} variants={variants}>
     {itemIds.map(i => (
-      <MenuItem i={i} key={i} />
+      <MenuItem  i={i} key={i} />
     ))}
   </motion.ul>
 );

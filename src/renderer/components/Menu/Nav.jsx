@@ -42,7 +42,10 @@ export const Nav = () => {
       exit="closed"
       
     >
-      <motion.div className="background" variants={sidebar} />
+      <motion.div className="background" variants={sidebar}
+      initial="closed"
+      animate={isOpen ? "open" : "closed"}
+      />
       <Navigation active={isOpen}/>
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>

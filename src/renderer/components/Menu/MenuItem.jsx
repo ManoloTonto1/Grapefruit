@@ -26,7 +26,7 @@ const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 const pages = ["Dashboard", "Customers","Invoices", "Quotes", "Settings"];
 const icons = ["fa-brands fa-elementor","fa-solid fa-users","fa-solid fa-receipt","fa-solid fa-file-invoice","fa-solid fa-cog"];
 
-export const MenuItem = ({ i }) => {
+export const MenuItem = ({ i, toggle }) => {
   const navigate = useNavigate();
   const style = { border: `2px solid ${colors[i]}` };
   return (
@@ -34,7 +34,10 @@ export const MenuItem = ({ i }) => {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() => gotoPage(`/${pages[i]}`, navigate)}
+      onClick={() =>{ 
+        gotoPage(`/${pages[i]}`, navigate)
+      }
+    }
     >
       <div className="icon-placeholder" ><i className={icons[i]}></i></div>
       <div className="text-placeholder" ><span className="text">{pages[i]}</span></div>

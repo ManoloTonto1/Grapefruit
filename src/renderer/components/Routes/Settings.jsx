@@ -82,7 +82,10 @@ function Image(props){
             <motion.img className='logo' src={logo} alt="logo.png"/>
             <br></br>
             <motion.input type="file" id="upload" hidden/>
-            <motion.label className='file-upload' for="upload">Cambiar Logo</motion.label>
+            <motion.label 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            className='file-upload' htmlFor="upload">Cambiar Logo</motion.label>
         </motion.div>
 
         </motion.div>
@@ -107,18 +110,17 @@ function Settings() {
     
         isLoading(false);
         setSettings(JSON.parse(rawdata));
-        JSON.parse(rawdata,(key, value) => {
-            for(let i = 0; i < settingsref.current.length; i++){
-                settingsref.current[i].key = key;
-        }});
-
-    
-        
+     
+    }
+    const handleSubmit = () => {
+      let data = JSON.stringify(settings);
+      fs.writeFileSync('./src/data/settings.json', data);
+      alert('Settings Saved');
     }
 
   return (
       <>
-      {console.log(settingsref)}
+
     <motion.div className='settings-container'>
     <motion.div className='settings' 
     variants={variants}
@@ -139,15 +141,11 @@ function Settings() {
     <ToggleSwitch label="Incluir Impuestos" value={settings.includeTax}/>
     <NumberInput label="Porcentaje De Impuestos:" value={settings.taxRate}/>
 
-    <button className="button-save" onClick={() => {
-
-        let data = JSON.stringify(settings);
-        fs.writeFileSync('./src/data/settings.json', data);
-        alert('Settings Saved');
-    }}>Save</button>
+    <motion.button variants={variants2} className="button-save" onClick={handleSubmit}>Guardar</motion.button>
 
     </motion.div>
     </motion.div>
+
  
 
 

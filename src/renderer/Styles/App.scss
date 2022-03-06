@@ -1,27 +1,40 @@
-$black_coral : #545863;
-$blue : #00e8fc;
-$darkblue : #0076fc;
-$orange: #f96e46;
-$yellow: #f9c846;
-$rose: #ffe3e3;
-$cream: #ffffc7;
+
+$blue: #0076fc;
+$darkgrey: #444655;
+$lightgrey:#a8aabc;
+$pink:#ed2457;
+$darkpink:#ad002b;
 $white: #fff8f8;
 $black: #000000;
-$darker: 0.0001;
-$brighter: 0.05;
 $green: #008000;
 $green_dark: #036603;
+$gradient1:#d266e3;
+$gradient2:#ff66af;
+$gradient3:#ff8f7b;
+$gradient4:#ffc55d;
+$gradient5:#f9f871;
 
-
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
 body {
   //position: relative;
 
   height: 100vh;
   background: linear-gradient(
     200.96deg,
-    $yellow -29.09%,
-    $orange 51.77%,
-    $blue 129.35%,
+    $gradient1 -29.09%,
+    $blue 51.77%,
+    $gradient2 129.35%,
   );
   font-family: sans-serif;
   margin : 0;
@@ -32,11 +45,12 @@ body {
 
 
 nav {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 3px;
 }
 
 .background {
@@ -49,8 +63,8 @@ nav {
   background: linear-gradient(
     200.96deg,
     $white -29.09%,
-    $rose 51.77%,
-    $yellow 129.35%,
+    $white 51.77%,
+    $gradient1 129.35%,
   );
 }
 
@@ -100,7 +114,7 @@ li {
   flex: 40px 0;
   margin-right: 20px;
   position: relative;
-  border: 3px solid $black_coral;
+  border: 3px solid $darkgrey;
   
   i{
     font-size: 1.5rem;
@@ -109,7 +123,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $darkblue;
+    color: $blue;
   }
 }
 
@@ -119,12 +133,12 @@ li {
   height: 20px;
   flex: 1;
   text-align: center;
-  border: 3px solid $black_coral;
+  border: 3px solid $darkgrey;
 
   .text{
     font-size: 14px;
     font-weight: bold;
-    color: $black_coral;
+    color: $darkgrey;
    
   }
 }
@@ -159,7 +173,7 @@ li {
   margin-bottom: 1em;
 }
 
-.switch[data-isOn="true"] {
+.switch[data-ison="true"] {
   justify-content: flex-end;
   background-color: $green; 
 }
@@ -170,18 +184,22 @@ li {
   background-color: white;
   border-radius: 40px;
 }
-.settings-container{
-
+.settings-container,.invoices-container,.quotes-container{
   width: 100%;
-  overflow: hidden;
-}
-.settings{
   height: 100%;
-  overflow: hidden;
+  overflow: hidden
+}
+.settings,.invoices,.quotes{
+  overflow: auto;
+  height: 100vh;
   margin-left:100px;
   padding-top:100px;
-  position: relative;
+  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+  box-sizing: content-box; /* So the width will be 100% + 17px */
 
+}
+.invoices{
+  margin-right: 100px;
 }
 
 .disabled{
@@ -191,11 +209,11 @@ li {
   display: grid;
   grid-template-columns: 1fr 3fr;  
   .label{
-    color: $black;
+    color: $white;
     width: 60%;
     padding: .5em 1em;
     border-radius: .5em;
-    border-bottom: 3px solid $black_coral;
+    border-bottom: 3px solid $darkgrey;
     margin-bottom: 0.5em;
     transition: 400ms;
 
@@ -209,14 +227,14 @@ li {
     padding: .5em 1em;
     border-radius: .5em;
     border-color: transparent;
-    border-bottom: 3px solid $rose;
+    border-bottom: 3px solid $lightgrey;
     margin-bottom: 1em;
-    transition: 400ms;
+    transition: 250ms;
     outline: none;
     background-color: whitesmoke;
     font-weight: bolder;
     &:focus{
-      border-color: $blue;
+      border: 3px solid $pink;
     }
   }
   .input-small{
@@ -226,20 +244,20 @@ li {
     padding: .5em 1em;
     border-radius: .5em;
     border-color: transparent;
-    border-bottom: 3px solid $rose;
+    border-bottom: 3px solid $lightgrey;
     margin-bottom: 1em;
-    transition: 400ms;
+    transition: 250ms;
     outline: none;
     background-color: whitesmoke;
     font-weight: bolder;
     &:focus{
-      border-color: $blue;
+      border: 3px solid $pink;
     }
   }
 
   .logo{
     width: 250px;
-    border : 3px solid $black_coral;
+    border : 3px solid $darkgrey;
     background-color: #545863;
     border-radius: 10%;
     margin-bottom: 1em;
@@ -248,19 +266,20 @@ li {
   .file-upload{
     width: 250px;
     display: inline-block;
-    background-color: $darkblue;
+    background-color: $pink;
     color: $white;
     padding: 0.5rem 0rem 0.5rem 0.5rem;
     font-family: sans-serif;
     border-radius: 0.3rem;
     cursor: pointer;
     margin-bottom: 1rem;
+    text-align: center;
   }
 }
 
 .button-save{
-  position: absolute;
-  bottom: 1;
+  position: fixed;
+  bottom: 1rem;
   right: 5rem;
   background-color: $green;
   color: $white;
@@ -273,6 +292,40 @@ li {
   transition: 400ms;
   &:hover{
     background-color: $green_dark;
+  }
+}
+
+.table{
+  width: 100%;
+  border-spacing: 0px;
+  color: $white;
+  text-align: left;
+  thead th{
+    border-bottom: $pink solid 3px;
+  }
+  td,th{
+    text-align: left;
+    padding: .5em;
+  }
+  td{
+    padding: 1em  1em 1em 8px;
+    border-bottom: $pink solid 1px;
+  }
+
+  button{
+
+    background-color: $green;
+    color: $white;
+    border-radius: .5em;
+    padding: 0.5em;
+    border: none;
+    outline: none;
+    font-size: large;
+    cursor: pointer;
+    transition: 400ms;
+    &:hover{
+      background-color: $green_dark;
+    }
   }
 }
 

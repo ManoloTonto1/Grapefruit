@@ -1,17 +1,35 @@
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
 body {
   height: 100vh;
-  background: linear-gradient(200.96deg, #f9c846 -29.09%, #f96e46 51.77%, #00e8fc 129.35%);
+  background: linear-gradient(200.96deg, #d266e3 -29.09%, #0076fc 51.77%, #ff66af 129.35%);
   font-family: sans-serif;
   margin: 0;
   overflow: hidden;
 }
 
 nav {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 3px;
 }
 
 .background {
@@ -21,7 +39,7 @@ nav {
   bottom: 0;
   width: 300px;
   z-index: 100;
-  background: linear-gradient(200.96deg, #fff8f8 -29.09%, #ffe3e3 51.77%, #f9c846 129.35%);
+  background: linear-gradient(200.96deg, #fff8f8 -29.09%, #fff8f8 51.77%, #d266e3 129.35%);
 }
 
 .svg-button {
@@ -76,7 +94,7 @@ li {
           flex: 40px 0;
   margin-right: 20px;
   position: relative;
-  border: 3px solid #545863;
+  border: 3px solid #444655;
 }
 
 .icon-placeholder i {
@@ -98,13 +116,13 @@ li {
       -ms-flex: 1;
           flex: 1;
   text-align: center;
-  border: 3px solid #545863;
+  border: 3px solid #444655;
 }
 
 .text-placeholder .text {
   font-size: 14px;
   font-weight: bold;
-  color: #545863;
+  color: #444655;
 }
 
 .refresh {
@@ -148,7 +166,7 @@ li {
   margin-bottom: 1em;
 }
 
-.switch[data-isOn="true"] {
+.switch[data-ison="true"] {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -162,17 +180,26 @@ li {
   border-radius: 40px;
 }
 
-.settings-container {
+.settings-container, .invoices-container, .quotes-container {
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.settings {
-  height: 100%;
-  overflow: hidden;
+.settings, .invoices, .quotes {
+  overflow: auto;
+  height: 100vh;
   margin-left: 100px;
   padding-top: 100px;
-  position: relative;
+  padding-right: 17px;
+  /* Increase/decrease this value for cross-browser compatibility */
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /* So the width will be 100% + 17px */
+}
+
+.invoices {
+  margin-right: 100px;
 }
 
 .disabled {
@@ -187,11 +214,11 @@ li {
 }
 
 .text-container .label {
-  color: #000000;
+  color: #fff8f8;
   width: 60%;
   padding: .5em 1em;
   border-radius: .5em;
-  border-bottom: 3px solid #545863;
+  border-bottom: 3px solid #444655;
   margin-bottom: 0.5em;
   -webkit-transition: 400ms;
   transition: 400ms;
@@ -205,17 +232,17 @@ li {
   padding: .5em 1em;
   border-radius: .5em;
   border-color: transparent;
-  border-bottom: 3px solid #ffe3e3;
+  border-bottom: 3px solid #a8aabc;
   margin-bottom: 1em;
-  -webkit-transition: 400ms;
-  transition: 400ms;
+  -webkit-transition: 250ms;
+  transition: 250ms;
   outline: none;
   background-color: whitesmoke;
   font-weight: bolder;
 }
 
 .text-container .input:focus {
-  border-color: #00e8fc;
+  border: 3px solid #ed2457;
 }
 
 .text-container .input-small {
@@ -224,22 +251,22 @@ li {
   padding: .5em 1em;
   border-radius: .5em;
   border-color: transparent;
-  border-bottom: 3px solid #ffe3e3;
+  border-bottom: 3px solid #a8aabc;
   margin-bottom: 1em;
-  -webkit-transition: 400ms;
-  transition: 400ms;
+  -webkit-transition: 250ms;
+  transition: 250ms;
   outline: none;
   background-color: whitesmoke;
   font-weight: bolder;
 }
 
 .text-container .input-small:focus {
-  border-color: #00e8fc;
+  border: 3px solid #ed2457;
 }
 
 .text-container .logo {
   width: 250px;
-  border: 3px solid #545863;
+  border: 3px solid #444655;
   background-color: #545863;
   border-radius: 10%;
   margin-bottom: 1em;
@@ -248,18 +275,19 @@ li {
 .text-container .file-upload {
   width: 250px;
   display: inline-block;
-  background-color: #0076fc;
+  background-color: #ed2457;
   color: #fff8f8;
   padding: 0.5rem 0rem 0.5rem 0.5rem;
   font-family: sans-serif;
   border-radius: 0.3rem;
   cursor: pointer;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .button-save {
-  position: absolute;
-  bottom: 1;
+  position: fixed;
+  bottom: 1rem;
   right: 5rem;
   background-color: #008000;
   color: #fff8f8;
@@ -274,6 +302,44 @@ li {
 }
 
 .button-save:hover {
+  background-color: #036603;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0px;
+  color: #fff8f8;
+  text-align: left;
+}
+
+.table thead th {
+  border-bottom: #ed2457 solid 3px;
+}
+
+.table td, .table th {
+  text-align: left;
+  padding: .5em;
+}
+
+.table td {
+  padding: 1em  1em 1em 8px;
+  border-bottom: #ed2457 solid 1px;
+}
+
+.table button {
+  background-color: #008000;
+  color: #fff8f8;
+  border-radius: .5em;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  font-size: large;
+  cursor: pointer;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.table button:hover {
   background-color: #036603;
 }
 /*# sourceMappingURL=App.css.map */

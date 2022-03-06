@@ -1,8 +1,13 @@
 import React from 'react'
+import Table from '../Table/Table'
 
 function Invoices() {
   return (
-    <div>Invoices</div>
+    <div className='invoices-contaienr'>
+      <div className='invoices'>
+      {<Table type="invoice"/>}
+      </div>
+      </div>
   )
 }
 
