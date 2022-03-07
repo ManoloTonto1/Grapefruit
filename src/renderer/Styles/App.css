@@ -382,6 +382,40 @@ li {
   font-weight: 1000;
 }
 
+.side-button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  left: 9px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ff66af;
+  z-index: 80;
+  color: #fff8f8;
+  font-size: x-large;
+  font-weight: 1000;
+}
+
+.button1 {
+  top: 165px;
+  background: #008eff;
+}
+
+.button2 {
+  top: 245px;
+  background: #ed2457;
+}
+
+.button3 {
+  top: 325px;
+  background: #ff2600;
+}
+
 .backdrop {
   position: absolute;
   top: 0;

@@ -368,6 +368,37 @@ li {
   font-size: x-large;
   font-weight: 1000;
 }
+.side-button{
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  left: 9px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $gradient2;
+  z-index: 80;
+  color: $white;
+  font-size: x-large;
+  font-weight: 1000;
+
+}
+.button1{
+  top: 85px+80px;
+  background: $blue * 1.2;
+}
+.button2{
+  top: 85px+160px;
+  background: $pink;
+}
+.button3{
+  top: 85px+240px;
+  background: $red;
+}
 .backdrop {
   position: absolute;
   top: 0;
