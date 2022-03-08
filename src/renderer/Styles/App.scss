@@ -313,39 +313,6 @@ li {
     border-bottom: $pink solid 1px;
   }
 
-  button{
-
-    
-    color: $white;
-    border-radius: .5em;
-    padding: 0.5em;
-    border: none;
-    outline: none;
-    font-size: large;
-    cursor: pointer;
-    transition: 400ms;
-
-
-
-  }
-  .Borrar{
-    background-color: $red;
-    &:hover{
-      background-color: $red * 0.8;
-    }
-  }
-  .Preview{
-    background-color: $green;
-    &:hover{
-      background-color: $green * 0.8;
-    }
-  }
-  .Editar{
-    background-color: $blue * 1.1;
-    &:hover{
-      background-color: $blue * 0.9;
-    }
-  }
 
 }
 

@@ -326,42 +326,6 @@ li {
   border-bottom: #ed2457 solid 1px;
 }
 
-.table button {
-  color: #fff8f8;
-  border-radius: .5em;
-  padding: 0.5em;
-  border: none;
-  outline: none;
-  font-size: large;
-  cursor: pointer;
-  -webkit-transition: 400ms;
-  transition: 400ms;
-}
-
-.table .Borrar {
-  background-color: #ff2600;
-}
-
-.table .Borrar:hover {
-  background-color: #cc1e00;
-}
-
-.table .Preview {
-  background-color: #008000;
-}
-
-.table .Preview:hover {
-  background-color: #006600;
-}
-
-.table .Editar {
-  background-color: #0082ff;
-}
-
-.table .Editar:hover {
-  background-color: #006ae3;
-}
-
 .add-button {
   outline: none;
   border: none;

@@ -46,6 +46,8 @@ const variants = {
       }
   };
 
+  
+
 
 function Table({data}) {
   return (
