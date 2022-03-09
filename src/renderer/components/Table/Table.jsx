@@ -65,7 +65,7 @@ function Table({data}) {
 
         <motion.tbody>
             {data.map((row) => (
-                <Rows data={row}/>
+                <Rows data={row} key={row.meta.id}/>
             ))}
 
         </motion.tbody>

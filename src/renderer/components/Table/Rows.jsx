@@ -66,7 +66,7 @@ function Sidebuttons({type, onClick}) {
       );
   }
   
-export function Rows({data}) {
+export function Rows({data, key}) {
     const [selected, setSelected] = useState(false);
 
 
@@ -78,7 +78,7 @@ export function Rows({data}) {
             
             <motion.tr variants={variants2}
             onClick={() => setSelected(true)}
-           
+           key={key}
             >
                 <Data data={data.id} />
                 <Data data={data.name} />

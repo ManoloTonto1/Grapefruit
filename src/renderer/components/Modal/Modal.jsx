@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
 import { useCallback } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const dropIn = {
@@ -26,9 +26,16 @@ const dropIn = {
   };
   
 
-
+  const Input = () => {
+    return <input placeholder="Your input here" />;
+  };
 
 const Modal = ({ handleClose, text }) => {
+  
+  const [inputList, setInputList] = useState([]);
+    const onAddBtnClick = event => {
+      setInputList(inputList.concat(<Input key={inputList.length} />));
+    };
   
 
     const escFunction = useCallback((event) => {
@@ -61,7 +68,9 @@ const Modal = ({ handleClose, text }) => {
             <p>{text}</p>
             <i className="fa-solid fa-circle-xmark" onClick={handleClose}></i>
             <input type="text" onKeyPress={escFunction}/> 
-            <input type="submit" value="Submit" onClick={"console"} />
+            <input className="submit" type="submit" value="Submit" onClick={"submit"} />
+            <input className="submit" type="submit" value="Submit" onClick={onAddBtnClick} />
+            {inputList}
           </motion.div>
       </Backdrop>
     );

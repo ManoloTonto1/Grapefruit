@@ -419,6 +419,23 @@ li {
           align-items: center;
 }
 
+.modal .submit {
+  background-color: #008000;
+  color: #fff8f8;
+  border-radius: .5em;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  font-size: larger;
+  cursor: pointer;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.modal .submit:hover {
+  background-color: #036603;
+}
+
 .modal-header {
   display: -webkit-box;
   display: -ms-flexbox;
