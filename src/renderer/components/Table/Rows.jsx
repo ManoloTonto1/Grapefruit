@@ -3,6 +3,8 @@ import { motion,AnimatePresence } from 'framer-motion';
 import { variants2 } from './Table';
 import { Button } from "./Button";
 import { Data } from "./Data";
+import Document from "../Templates/Invoices/Document";
+import Modal from '../Templates/Invoices/Modal/Modal';
 
 function Sidebuttons({type, onClick}) {
     const hover = {
@@ -68,7 +70,9 @@ function Sidebuttons({type, onClick}) {
   
 export function Rows({data, key}) {
     const [selected, setSelected] = useState(false);
-
+    const [show, setShow] = useState(false);
+    const close = () => setShow(false);
+    const open = () => setShow(true);
 
     data = data.meta;
     return (
@@ -84,10 +88,13 @@ export function Rows({data, key}) {
                 <Data data={data.name} />
                 <Data data={data.created_at} />
                 <Data data={data.updated_at} />
-               {/* <Button type="Preview" />
+                <Button type="Preview" onClick={()=>(show ? close() : open())} />
                 <Button type="Editar" />
-                <Button type="Borrar" />/*/}
+                <Button type="Borrar" />
             </motion.tr>
+              <AnimatePresence>
+                {show && <Modal modalOpen={show} handleClose={close} />}
+              </AnimatePresence>  
         </>
 
 

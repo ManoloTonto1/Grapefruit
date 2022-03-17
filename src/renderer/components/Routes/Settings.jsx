@@ -6,6 +6,8 @@ import { TextInput } from '../misc/TextInput';
 import { NumberInput } from '../misc/NumberInput';
 import { ToggleSwitch } from '../misc/ToggleSwitch';
 import { Whitespace } from '../Table/Whitespace';
+const { dialog } = window.require('electron');
+const ipc = window.require("electron").ipcRenderer;
 
 
 const variants = {
@@ -49,16 +51,25 @@ function Image(props){
         <motion.div>
             <motion.img className='logo' src={logo} alt="logo.png"/>
             <br></br>
-            <motion.input type="file" id="upload" hidden/>
-            <motion.label 
+            <motion.button className="file-upload" type="file" id="upload"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
-            className='file-upload' htmlFor="upload">Cambiar Logo</motion.label>
+            onClick={uploadImage}>Cambiar logo</motion.button>
+            
         </motion.div>
 
         </motion.div>
         </>
     )
+}
+
+const uploadImage = () => {
+// If the platform is 'win32' or 'Linux'
+if (process.platform !== 'darwin') {
+  // Resolves to a Promise<Object>
+ipc.send('open-file-dialog'); 
+}
+    
 }
 
 function toDecimal(num){
@@ -71,16 +82,17 @@ function toDecimal(num){
 function Settings() {
     const [settings, setSettings] = useState({});
     const [loading, isLoading] = useState(true);
-    const settingsref = useRef([]);
     const getSettings = () => {
 
         let rawdata = fs.readFileSync('./src/data/settings.json');
     
         isLoading(false);
         setSettings(JSON.parse(rawdata));
+        
      
     }
     const handleSubmit = () => {
+      console.log(settings);
       let data = JSON.stringify(settings);
       fs.writeFileSync('./src/data/settings.json', data);
       alert('Settings Saved');
@@ -110,18 +122,18 @@ function Settings() {
     animate="open"
     exit="exit">
 
-    <Image label="Logo:"  value={settings.LogoURL}/>
-    <TextInput label="Nombre de la Compañia:" value={loading ? getSettings() : settings.companyName}/>
-    <TextInput label="Direccion de la Compañia:" value={settings.companyAddress}/>
-    <TextInput label="Numero Telefonico:" value={settings.companyPhone}/>
-    <TextInput label="Email:" value={settings.companyEmail}/>
-    <TextInput label="Website:" value={settings.companyWebsite}/>
-    <NumberInput label="Ultimo Invoice:" value={settings.lastInvoice}/>
-    <ToggleSwitch label="Auto-Save" value={settings.autoSave}/>
-    <ToggleSwitch label="Auto-Save Direcciones" value={settings.autoSaveAddresses}/>
-    <ToggleSwitch label="Preguntar Donde Guardar" value={settings.askToSave}/>
-    <ToggleSwitch label="Incluir Impuestos" value={settings.includeTax}/>
-    <NumberInput label="Porcentaje De Impuestos:" value={settings.taxRate}/>
+    <Image label="Logo:"/>
+    <TextInput label="Nombre de la Compañia:"  value={loading ? getSettings() : settings.companyName} setter={setSettings} />
+    <TextInput label="Direccion de la Compañia:" value={settings.companyAddress} setter={setSettings}/>
+    <TextInput label="Numero Telefonico:"  value={settings.companyPhone} setter={setSettings}/>
+    <TextInput label="Email:"  value={settings.companyEmail} setter={setSettings}/>
+    <TextInput label="Website:"  value={settings.companyWebsite} setter={setSettings}/>
+    <NumberInput label="Ultimo Invoice:"  value={settings.lastInvoice} setter={setSettings}/>
+    <ToggleSwitch label="Auto-Save"  value={settings.autoSave} setter={setSettings}/>
+    <ToggleSwitch label="Auto-Save Direcciones"  value={settings.autoSaveAddresses} setter={setSettings}/>
+    <ToggleSwitch label="Preguntar Donde Guardar"  value={settings.askToSave} setter={setSettings}/>
+    <ToggleSwitch label="Incluir Impuestos"  value={settings.includeTax} setter={setSettings}/>
+    <NumberInput label="Porcentaje De Impuestos:"  value={settings.taxRate} setter={setSettings}/>
 
     <motion.button variants={variants2} className="button-save" onClick={handleSubmit}>Guardar</motion.button>
     <Whitespace/>

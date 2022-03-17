@@ -22,6 +22,7 @@ const requiredByDLLConfig = module.parent!.filename.includes(
   'webpack.config.renderer.dev.dll'
 );
 
+
 /**
  * Warn if the DLL is not built
  */
@@ -42,7 +43,7 @@ const configuration: webpack.Configuration = {
 
   mode: 'development',
 
-  target:  'electron-renderer',
+  target: 'electron-renderer',
 
   entry: [
     `webpack-dev-server/client?http://localhost:${port}/dist`,

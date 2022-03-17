@@ -1,10 +1,10 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 function Switch(props) {
     const [isOn, setIsOn] = useState(props.value);
-
-    const toggleSwitch = () => setIsOn(!isOn);
+    const ref = useRef(props.ref);
+    const toggleSwitch = () => {setIsOn(!isOn); ref.current.value = !isOn};
   
     return (
       <div className="switch" data-ison={isOn} onClick={toggleSwitch}>

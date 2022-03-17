@@ -9,7 +9,7 @@ export function ToggleSwitch(props) {
       <motion.div className='text-container' variants={variants2}>
         <motion.label className='label'>{props.label}</motion.label>
         <motion.div>
-          <Switch value={props.value} />
+          <Switch ref={props.ref} value={props.value} />
         </motion.div>
 
       </motion.div>

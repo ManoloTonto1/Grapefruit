@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 
 
 
-export function Button({ type }) {
+export function Button({ type, onClick }) {
     return (
         <motion.td>
-            <motion.button className={type}>{type}</motion.button>
+            <motion.button
+            onClick={onClick} className={type}>{type}</motion.button>
         </motion.td>
     );
 }

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
 import { useCallback } from "react";
 import { useEffect, useState } from "react";
+import Document from "../Document";
 
 
 const dropIn = {
@@ -57,7 +58,7 @@ const Modal = ({ handleClose, text }) => {
       <Backdrop onClick={handleClose}>
           <motion.div
             onClick={(e) => e.stopPropagation()}  
-            className="modal "
+            className="modal document"
             variants={dropIn}
             initial="hidden"
             animate="visible"
@@ -65,12 +66,9 @@ const Modal = ({ handleClose, text }) => {
             onKeyPress={escFunction}
           >
             
-            <p>{text}</p>
+            
             <i className="fa-solid fa-circle-xmark" onClick={handleClose}></i>
-            <input type="text" onKeyPress={escFunction}/> 
-            <input className="submit" type="submit" value="Submit" onClick={"submit"} />
-            <input className="submit" type="submit" value="Add Field" onClick={onAddBtnClick} />
-            {inputList}
+            <Document/>
           </motion.div>
       </Backdrop>
     );
