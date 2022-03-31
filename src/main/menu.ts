@@ -208,6 +208,7 @@ export default class MenuBuilder {
               this.mainWindow.close();
             },
           },
+          
         ],
       },
       {
@@ -250,7 +251,27 @@ export default class MenuBuilder {
                     );
                   },
                 },
+                {
+                  label: '&Language',
+                  submenu: [
+                    {
+                      label: '&English',
+                      click: () => {
+                        changeLanguage('en');
+                      }
+                    },
+                    {
+                      label: '&Español',
+                      click: () => {
+                        changeLanguage('es');
+                      }
+                    },
+                    
+                  
+                  ],
+                },
               ],
+              
       },
       {
         label: 'Help',

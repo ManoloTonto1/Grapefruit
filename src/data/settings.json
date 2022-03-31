@@ -1,1 +1,24 @@
-{"companyName":"SM Construction","companyAddress":"Your Company Address","companyPhone":"Your Company Phone","companyEmail":"Your Company Email","companyWebsite":"Your Company Website","LogoURL":"/d01662e6d219e294796b.png","autoSave":true,"autoSaveAddresses":true,"askToSave":true,"includeTax":true,"taxRate":1,"currency":"$","currencyPosition":"left","dateFormat":"DD/MM/YYYY","timeFormat":"HH:mm","timezone":"UTC","language":"en","theme":"default","lastQuote":0,"quoteformat":"Q-#####","lastInvoice":0,"invoIceFormat":"I-#####"}
+{
+  "companyName": "SM Construction",
+  "companyAddress": "Your Company Address",
+  "companyPhone": "Your Company Phone",
+  "companyEmail": "Your Company Email",
+  "companyWebsite": "Your Company Website",
+  "LogoURL": "/d01662e6d219e294796b.png",
+  "autoSave": true,
+  "autoSaveAddresses": true,
+  "askToSave": true,
+  "includeTax": true,
+  "taxRate": 1,
+  "currency": "$",
+  "currencyPosition": "left",
+  "dateFormat": "DD/MM/YYYY",
+  "timeFormat": "HH:mm",
+  "timezone": "UTC",
+  "language": "en",
+  "theme": "default",
+  "lastQuote": 0,
+  "quoteformat": "Q-#####",
+  "lastInvoice": 0,
+  "invoIceFormat": "I-#####"
+}

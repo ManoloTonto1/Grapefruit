@@ -8,9 +8,7 @@ export function Header() {
             <TH value="Nombre de el Archivo" />
             <TH value="Fecha Creada" />
             <TH value="Fecha Modificada" />
-            <TH value="Preview" />
-            <TH value="Editar" />
-            <TH value="Borrar" />
+            
         </>
 
 
