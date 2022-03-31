@@ -3,13 +3,14 @@ import Switch from './Switch';
 import { motion } from 'framer-motion';
 import { variants2 } from '../Routes/Settings';
 
-export function ToggleSwitch(props) {
+export function ToggleSwitch({setter, label, value}) {
   return (
     <>
+    
       <motion.div className='text-container' variants={variants2}>
-        <motion.label className='label'>{props.label}</motion.label>
+        <motion.label className='label'>{label}</motion.label>
         <motion.div>
-          <Switch ref={props.ref} value={props.value} />
+          <Switch setter={setter} value={value} />
         </motion.div>
 
       </motion.div>

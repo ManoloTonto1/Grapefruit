@@ -89,6 +89,7 @@ function Settings() {
         isLoading(false);
         setSettings(JSON.parse(rawdata));
         
+        
      
     }
     const handleSubmit = () => {
@@ -123,17 +124,17 @@ function Settings() {
     exit="exit">
 
     <Image label="Logo:"/>
-    <TextInput label="Nombre de la Compañia:"  value={loading ? getSettings() : settings.companyName} setter={setSettings} />
-    <TextInput label="Direccion de la Compañia:" value={settings.companyAddress} setter={setSettings}/>
-    <TextInput label="Numero Telefonico:"  value={settings.companyPhone} setter={setSettings}/>
-    <TextInput label="Email:"  value={settings.companyEmail} setter={setSettings}/>
-    <TextInput label="Website:"  value={settings.companyWebsite} setter={setSettings}/>
-    <NumberInput label="Ultimo Invoice:"  value={settings.lastInvoice} setter={setSettings}/>
-    <ToggleSwitch label="Auto-Save"  value={settings.autoSave} setter={setSettings}/>
-    <ToggleSwitch label="Auto-Save Direcciones"  value={settings.autoSaveAddresses} setter={setSettings}/>
-    <ToggleSwitch label="Preguntar Donde Guardar"  value={settings.askToSave} setter={setSettings}/>
-    <ToggleSwitch label="Incluir Impuestos"  value={settings.includeTax} setter={setSettings}/>
-    <NumberInput label="Porcentaje De Impuestos:"  value={settings.taxRate} setter={setSettings}/>
+    <TextInput label="Nombre de la Compañia:"  value={loading ? getSettings() : settings.companyName} setter={(e)=>setSettings({...settings,companyName:e})} />
+    <TextInput label="Direccion de la Compañia:" value={settings.companyAddress} setter={(e)=>setSettings({...settings,companyAddress:e})}/>
+    <TextInput label="Numero Telefonico:"  value={settings.companyPhone} setter={(e)=>setSettings({...settings,companyPhone:e})}/>
+    <TextInput label="Email:"  value={settings.companyEmail} setter={(e)=>setSettings({...settings,companyEmail:e})}/>
+    <TextInput label="Website:"  value={settings.companyWebsite} setter={(e)=>setSettings({...settings,companyWebsite:e})}/>
+    <NumberInput label="Ultimo Invoice:"  value={settings.lastInvoice} setter={(e)=>setSettings({...settings,lastInvoice:e})}/>
+    <ToggleSwitch label="Auto-Save"  value={settings.autoSave} setter={(e)=>setSettings({...settings,autoSave:e})}/>
+    <ToggleSwitch label="Auto-Save Direcciones"  value={settings.autoSaveAddresses} setter={(e)=>setSettings({...settings,autoSaveAddresses:e})}/>
+    <ToggleSwitch label="Preguntar Donde Guardar"  value={settings.askToSave} setter={(e)=>setSettings({...settings,askToSave:e})}/>
+    <ToggleSwitch label="Incluir Impuestos"  value={settings.includeTax} setter={(e)=>setSettings({...settings,includeTax:e})}/>
+    <NumberInput label="Porcentaje De Impuestos:"  value={settings.taxRate} setter={(e)=>setSettings({...settings,taxRate:e})}/>
 
     <motion.button variants={variants2} className="button-save" onClick={handleSubmit}>Guardar</motion.button>
     <Whitespace/>
