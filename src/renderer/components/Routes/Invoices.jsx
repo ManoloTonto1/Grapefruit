@@ -5,7 +5,7 @@ import Modal  from '../Modal/Modal';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { variants2 } from '../Table/Table';
-
+import DocumentModal from '../Templates/Invoices/Modal/DocumentModal';
 const fs = require('fs');
 
 function Sidebuttons({id }) {
@@ -38,6 +38,11 @@ function Sidebuttons({id }) {
       transition: { duration: 0.5 }
     },
   };
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
+  
     return (
     
     <>
@@ -48,7 +53,7 @@ function Sidebuttons({id }) {
             exit="exit"
             whileHover={hover}
             whileTap={onclick}
-            className="side-button button1" onClick={()=> console.log("i have been clicked", id)}><i className="fa-solid fa-file-invoice"></i></motion.button>
+            className="side-button button1" onClick={()=> {console.log("i have been clicked", id); modalOpen ? close() : open()}}><i className="fa-solid fa-file-invoice"></i></motion.button>
         <motion.button
             variants={fadein}
             initial="hidden"
@@ -65,6 +70,9 @@ function Sidebuttons({id }) {
             whileHover={hover}
             whileTap={onclick}
             onClick="" className="side-button button3" onClick={}><i className="fa-solid fa-trash-can"></i></motion.button>
+            <AnimatePresence>
+            {modalOpen && <DocumentModal modalOpen={modalOpen} id={id} handleClose={close} />}
+            </AnimatePresence>
     </>
 
     );
@@ -85,6 +93,7 @@ function Invoices() {
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+
   
   const [data, setData] = useState([]);
   const [loading, isLoading] = useState(true);

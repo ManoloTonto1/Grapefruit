@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 import { Rows } from './Rows';
 import { Header } from './Header';
 import { Whitespace } from './Whitespace';
-import { ApplicationContext } from '../Routes/Invoices';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -51,7 +51,6 @@ const variants = {
 
 
 function Table({data}) {
-  const {state, setState} = useContext(ApplicationContext);
   return (
     <motion.div>
         <motion.table className='table'

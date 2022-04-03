@@ -331,6 +331,16 @@ li {
   border-bottom: #ed2457 solid 1px;
 }
 
+.table-document {
+  width: 100%;
+  text-align: left;
+}
+
+.table-document table, .table-document th, .table-document td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 .add-button {
   outline: none;
   border: none;

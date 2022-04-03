@@ -16,7 +16,7 @@ import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 const fs = require('fs');
 
-
+let language:string;
 
 export default class AppUpdater {
   constructor() {
@@ -33,7 +33,18 @@ ipcMain.on('ipc-example', async (event, arg) => {
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
-
+ipcMain.on('get-settings',(event, args) => {
+  let settings =  JSON.parse(fs.readFileSync('./src/data/settings.json', 'utf8'));
+  language = settings.language;
+  event.reply('get-settings',settings)
+})
+ipcMain.on('get-lang',(event,args)=>{
+  let settings =  JSON.parse(fs.readFileSync('./src/data/settings.json', 'utf8'));
+  language = settings.language;
+  let loadedLanguage =  JSON.parse(fs.readFileSync(`./src/main/lang/${language}.json`, 'utf8'));
+  
+  event.reply('get-lang',loadedLanguage)
+})
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -74,6 +85,7 @@ ipcMain.on('open-file-dialog', (event, args) => {
   })
   .catch(err => {console.log(err)});
 });
+
 
 const createWindow = async () => {
   if (isDevelopment) {

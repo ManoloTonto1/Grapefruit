@@ -6,6 +6,7 @@ import { TextInput } from '../misc/TextInput';
 import { NumberInput } from '../misc/NumberInput';
 import { ToggleSwitch } from '../misc/ToggleSwitch';
 import { Whitespace } from '../Table/Whitespace';
+import DropDown from '../misc/DropDown';
 const { dialog } = window.require('electron');
 const ipc = window.require("electron").ipcRenderer;
 
@@ -129,6 +130,7 @@ function Settings() {
     <TextInput label="Numero Telefonico:"  value={settings.companyPhone} setter={(e)=>setSettings({...settings,companyPhone:e})}/>
     <TextInput label="Email:"  value={settings.companyEmail} setter={(e)=>setSettings({...settings,companyEmail:e})}/>
     <TextInput label="Website:"  value={settings.companyWebsite} setter={(e)=>setSettings({...settings,companyWebsite:e})}/>
+    <DropDown label="Language"  value={settings.language} setter={(e)=>setSettings({...settings,language:e})}/>
     <NumberInput label="Ultimo Invoice:"  value={settings.lastInvoice} setter={(e)=>setSettings({...settings,lastInvoice:e})}/>
     <ToggleSwitch label="Auto-Save"  value={settings.autoSave} setter={(e)=>setSettings({...settings,autoSave:e})}/>
     <ToggleSwitch label="Auto-Save Direcciones"  value={settings.autoSaveAddresses} setter={(e)=>setSettings({...settings,autoSaveAddresses:e})}/>

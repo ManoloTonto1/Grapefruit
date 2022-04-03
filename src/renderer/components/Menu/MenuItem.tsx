@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+
+
 const variants = {
   open: {
     y: 0,
@@ -19,17 +21,31 @@ const variants = {
   }
 };
 
-const gotoPage = (path, navigate) => {
+const gotoPage = (path:any, navigate:any) => {
   navigate(path);
 };
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-const pages = ["Dashboard", "Customers","Invoices", "Quotes", "Settings"];
 const icons = ["fa-brands fa-elementor","fa-solid fa-users","fa-solid fa-receipt","fa-solid fa-file-invoice","fa-solid fa-cog"];
+const pages = ["dashboard","users","quotes","invoices","settings",];
 
-export const MenuItem = ({ i, toggle }) => {
+export const MenuItem = ({ i } : {i:any}) => {
+
+  
+  
+  
+
+  
+
+
+  
+
+
+  
   const navigate = useNavigate();
   const style = { border: `2px solid ${colors[i]}` };
   return (
+    <>
+     
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
@@ -42,5 +58,7 @@ export const MenuItem = ({ i, toggle }) => {
       <div className="icon-placeholder" ><i className={icons[i]}></i></div>
       <div className="text-placeholder" ><span className="text">{pages[i]}</span></div>
     </motion.li>
+    </>
+    
   );
 };

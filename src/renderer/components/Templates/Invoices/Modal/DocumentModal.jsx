@@ -31,14 +31,13 @@ const dropIn = {
     return <input placeholder="Your input here" />;
   };
 
-const Modal = ({ handleClose, text }) => {
+const DocumentModal = ({ handleClose, id }) => {
   
   const [inputList, setInputList] = useState([]);
     const onAddBtnClick = event => {
       setInputList(inputList.concat(<Input key={inputList.length} />));
     };
   
-``
     const escFunction = useCallback((event) => {
       if (event.keyCode === 27) {
         handleClose();
@@ -68,13 +67,11 @@ const Modal = ({ handleClose, text }) => {
             
             
             <i className="fa-solid fa-circle-xmark" onClick={handleClose}></i>
-            <Document/>
+            <Document id={id}/>
           </motion.div>
       </Backdrop>
     );
   };
 
   
-  export default 
-
-Modal;
+  export default DocumentModal;
