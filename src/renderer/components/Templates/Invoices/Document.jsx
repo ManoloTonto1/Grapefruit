@@ -2,33 +2,29 @@ import React,{useState, useEffect} from 'react'
 import logo from "../../../../../assets/icon.png";
 const fs = require('fs');
 function Document({id}) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [loading, isLoading] = useState(true);
+
   const getData =()=>{
     const file = './src/data/invoices/'+id+'.json';
     const loadedData = JSON.parse(fs.readFileSync(file, 'utf8'));
     setData(loadedData);
-    isLoading(false);
+    
+    
   }
   useEffect(()=>{
-    if(loading){
-      getData();
-      
-    }
-    else{
-      isLoading(false);
-      
-    }
+    getData();
+    isLoading(false);
   },[])
 
-  const checkIfLoading = () => {
-    if(loading){
-      return "loading";
-    }
-    else{
-      return data.data;
-    }
-  }
+  // const checkIfLoading = () => {
+  //   if(loading){
+  //     return "loading";
+  //   }
+  //   else{
+  //     return data.data;
+  //   }
+  // }
   return (
     
 
@@ -44,28 +40,42 @@ function Document({id}) {
         <span className='number'>NO.{id}</span>
         </div>
         </div>
-
         
-        <div className='table-document'>
+        {loading ? 
+          null
+            :
+            <div className='table-document'>
             <table>
               <thead>
                 <tr>
-                  <th>Description</th>
-                  <th>Amount</th>
+                  <th className='desc'>Description</th>
+                  <th className='amm'>Amount</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{checkIfLoading().name}</td>
-                  <td>{checkIfLoading().price}</td>
+                  <td className='underline name-first'>{data.data.name}</td>
+                  <td className='align-right'>{data.data.price}</td>
                 </tr>
                 <tr>
-                  <td>{checkIfLoading().a1.description}</td>
-                  <td>{checkIfLoading().a1.price}</td>
+                  <td>{data.data.a1.description}</td>
+                  <td className='align-right'>{data.data.a1.price}</td>
+                </tr>
+                <tr>
+                  <td>{data.data.a1.children.b1.description}</td>
+                  <td className='align-right'>{data.data.a1.children.b1.price}</td>
+                </tr>
+                <tr>
+                <td>{data.data.a1.children.b2.description}</td>
+                  <td className='align-right'>{data.data.a1.children.b2.price}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
+            
+      }
+      {data ? "data loaded" : "still loading"}
+      
 
         
         

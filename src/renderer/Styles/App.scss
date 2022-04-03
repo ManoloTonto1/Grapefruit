@@ -339,21 +339,51 @@ li {
 
 
 }
+
 .table-document {
-  table, th, td {
+  text-align: left;
+  padding-left: 0.7in;
+  padding-right: 0.7in;
+
+  table {
+    width: 100%;
+  }
+
+  thead {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table,
+  th,
+  td {
     border: 1px solid black;
     border-collapse: collapse;
+
   }
-  width: 100%;
-  text-align: left;
-  
+  th,td{
+    padding: 5px;
+    
+  }
+  .amm {
+    width: 40%;
+    
+  }
+  .align-right{
+    text-align: right;
+  }
 
- 
+  .desc {
+    width: 60%;
+  }
 
-
-
-
-
+  .underline{
+    text-decoration: underline;
+  }
+  .name-first{
+    padding-top: 1em;
+  }
 }
 
 .add-button {
@@ -439,7 +469,7 @@ li {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  
+
 
   .submit {
 
@@ -465,7 +495,7 @@ li {
 .document {
   width: 85%;
   height: 90%;
-  
+
 
 }
 
@@ -491,12 +521,13 @@ li {
     .right {
       text-align: right;
       margin-top: 1em;
+
       .invoice-head {
         font-family: 'Arial Black';
         color: #ccffff;
         font-size: 46px;
         font-weight: bolder;
-        
+
 
       }
 

@@ -332,13 +332,50 @@ li {
 }
 
 .table-document {
-  width: 100%;
   text-align: left;
+  padding-left: 0.7in;
+  padding-right: 0.7in;
 }
 
-.table-document table, .table-document th, .table-document td {
+.table-document table {
+  width: 100%;
+}
+
+.table-document thead {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table-document table,
+.table-document th,
+.table-document td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+.table-document th, .table-document td {
+  padding: 5px;
+}
+
+.table-document .amm {
+  width: 40%;
+}
+
+.table-document .align-right {
+  text-align: right;
+}
+
+.table-document .desc {
+  width: 60%;
+}
+
+.table-document .underline {
+  text-decoration: underline;
+}
+
+.table-document .name-first {
+  padding-top: 1em;
 }
 
 .add-button {
