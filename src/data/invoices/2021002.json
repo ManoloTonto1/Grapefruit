@@ -9,18 +9,19 @@
     "data":{
         "name": "Seroe Patrishi 102 (Itallic)",
         "price": "0.00",
+        "total": "260.00",	
 
         "a1":{
-            "description": "Bold Descreprion",
-            "price": "100",
+            "description": "Bold Description",
+            "price": "100.00",
             "children":{
                 "b1":{
                     "description": "first J0b",
-                    "price": "100"
+                    "price": "100.00"
                 },
                 "b2":{
                     "description": "Second Job",
-                    "price": "60"
+                    "price": "60.00"
                 }
             }
 

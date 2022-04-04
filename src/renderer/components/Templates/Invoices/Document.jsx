@@ -58,7 +58,7 @@ function Document({id}) {
                   <td className='align-right'>{data.data.price}</td>
                 </tr>
                 <tr>
-                  <td>{data.data.a1.description}</td>
+                  <td className='bold'>{data.data.a1.description}</td>
                   <td className='align-right'>{data.data.a1.price}</td>
                 </tr>
                 <tr>
@@ -68,6 +68,11 @@ function Document({id}) {
                 <tr>
                 <td>{data.data.a1.children.b2.description}</td>
                   <td className='align-right'>{data.data.a1.children.b2.price}</td>
+                </tr>
+                <tr className=''>
+
+                  <td></td>
+                  <td className='align-right'><span className='bold align-left'>Total:</span> <span className='align-right'>{data.data.total}</span></td>
                 </tr>
                 </tbody>
             </table>

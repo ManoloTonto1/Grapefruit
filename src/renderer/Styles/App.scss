@@ -344,8 +344,11 @@ li {
   text-align: left;
   padding-left: 0.7in;
   padding-right: 0.7in;
+  font-size: 11pt;
+
 
   table {
+
     width: 100%;
   }
 
@@ -353,18 +356,24 @@ li {
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    
+    
+    
   }
 
   table,
   th,
   td {
-    border: 1px solid black;
     border-collapse: collapse;
+    border-color:$black;
+    border-style: solid;  
+    border-width: 1px;
+    
 
   }
   th,td{
     padding: 5px;
-    
+
   }
   .amm {
     width: 40%;
@@ -373,6 +382,9 @@ li {
   .align-right{
     text-align: right;
   }
+  .align-left{
+    float: left; 
+  }
 
   .desc {
     width: 60%;
@@ -380,6 +392,9 @@ li {
 
   .underline{
     text-decoration: underline;
+  }
+  .bold{
+    font-weight: bold;
   }
   .name-first{
     padding-top: 1em;
