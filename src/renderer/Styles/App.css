@@ -465,8 +465,7 @@ li {
 .modal {
   width: clamp(60%, 25rem, 90%);
   height: 60%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(-10%, #ed2457), color-stop(50%, #0076fc), color-stop(123%, #ad002b));
-  background: linear-gradient(180deg, #ed2457 -10%, #0076fc 50%, #ad002b 123%);
+  background-color: #0076fc;
   margin: auto;
   padding: 0 2rem;
   border-radius: 12px;
@@ -498,6 +497,53 @@ li {
 
 .modal .submit:hover {
   background-color: #036603;
+}
+
+.modal-input-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.modal-input-row .input {
+  color: #000000;
+  width: 30%;
+  padding: .5em 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  border-radius: .5em;
+  border-color: transparent;
+  border-bottom: 3px solid #a8aabc;
+  margin-bottom: 1em;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  outline: none;
+  background-color: whitesmoke;
+  font-weight: bolder;
+}
+
+.modal-input-row .input:focus {
+  border: 2px solid #ed2457;
+}
+
+.modal-input-row .dropdown {
+  color: #000000;
+  width: 15%;
+  margin-right: 1em;
+  border-radius: .5em;
+  border-color: transparent;
+  border-bottom: 3px solid #a8aabc;
+  margin-bottom: 1em;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  outline: none;
+  background-color: whitesmoke;
+  font-weight: bolder;
+}
+
+.modal-input-row .dropdown:focus {
+  border: 2px solid #ed2457;
 }
 
 .document {

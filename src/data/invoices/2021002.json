@@ -8,24 +8,30 @@
     },
     "data":{
         "name": "Seroe Patrishi 102 (Itallic)",
-        "price": "0.00",
+        "price": "",
         "total": "260.00",	
+        "properties":[
+            "description",
+            "more info",
+            "make this Itallic",
+            "Make this bold"
 
-        "a1":{
-            "description": "Bold Description",
-            "price": "100.00",
-            "children":{
-                "b1":{
-                    "description": "first J0b",
-                    "price": "100.00"
-                },
-                "b2":{
-                    "description": "Second Job",
-                    "price": "60.00"
-                }
-            }
+        ],
+        "prices":[
+            "",
+            "1325.00",
+            "",
+            "74512"
+        ],
+        "markup":[
+            "",
+            "underline",
+            "itallic",
+            "bold"
+        ]
 
-        }
+
+        
         
     }
     

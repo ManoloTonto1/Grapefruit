@@ -472,11 +472,7 @@ li {
 .modal {
   width: clamp(60%, 25rem, 90%);
   height: min(70%, 60%);
-  background: linear-gradient(180deg,
-      $pink -10%,
-      $blue 50%,
-      $darkpink 123%,
-    );
+  background-color: $blue;
   margin: auto;
   padding: 0 2rem;
   border-radius: 12px;
@@ -502,6 +498,48 @@ li {
 
     &:hover {
       background-color: $green_dark;
+    }
+
+  }
+}
+.modal-input-row{
+  display: flex;
+  width: 100%;
+  .input{
+    color: $black;
+    width: 30%;
+    padding: .5em 1em;
+    margin-right: 1em;
+    margin-left: 1em;
+    border-radius: .5em;
+    border-color: transparent;
+    border-bottom: 3px solid $lightgrey;
+    margin-bottom: 1em;
+    transition: 250ms;
+    outline: none;
+    background-color: whitesmoke;
+    font-weight: bolder;
+
+    &:focus {
+      border: 2px solid $pink;
+    }
+
+  }
+  .dropdown{
+    color: $black;
+    width: 15%;
+    margin-right: 1em;
+    border-radius: .5em; 
+    border-color: transparent;
+    border-bottom: 3px solid $lightgrey;
+    margin-bottom: 1em;
+    transition: 250ms;
+    outline: none;
+    background-color: whitesmoke;
+    font-weight: bolder;
+
+    &:focus {
+      border: 2px solid $pink;
     }
 
   }

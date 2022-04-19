@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import logo from "../../../../../assets/icon.png";
 const fs = require('fs');
-function Document({id}) {
+function Document({id}: {id:any}) {
   const [data, setData] = useState(null);
   const [loading, isLoading] = useState(true);
 
@@ -53,22 +53,13 @@ function Document({id}) {
                 </tr>
               </thead>
               <tbody>
+                <TableContentParent data={data}/>
+                {data.data.properties.map((x:string,index:number)=>                 
                 <tr>
-                  <td className='underline name-first'>{data.data.name}</td>
-                  <td className='align-right'>{data.data.price}</td>
+                  <td className={data.data.markup[index]}>{x}</td>
+                  <td className='align-right'>{data.data.prices[index]}</td>
                 </tr>
-                <tr>
-                  <td className='bold'>{data.data.a1.description}</td>
-                  <td className='align-right'>{data.data.a1.price}</td>
-                </tr>
-                <tr>
-                  <td>{data.data.a1.children.b1.description}</td>
-                  <td className='align-right'>{data.data.a1.children.b1.price}</td>
-                </tr>
-                <tr>
-                <td>{data.data.a1.children.b2.description}</td>
-                  <td className='align-right'>{data.data.a1.children.b2.price}</td>
-                </tr>
+                )}
                 <tr className=''>
 
                   <td></td>
@@ -89,3 +80,22 @@ function Document({id}) {
 }
 
 export default Document
+
+function TableContentParent({data} : {data:any}) {
+  return(
+    <>
+                <tr>
+                  <td className='underline name-first'>{data.data.name}</td>
+                  <td className='align-right'>{data.data.price}</td>
+                </tr>
+                {Object.entries(data.data).map((key,value)=>{
+                  key.forEach(keys => {
+                    console.log(keys)
+                  });
+                })}
+                
+    </>
+              
+
+  )
+}
