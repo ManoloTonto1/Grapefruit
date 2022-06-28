@@ -3,28 +3,10 @@ import Backdrop from "./Backdrop";
 import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import Multiselect from 'multiselect-react-dropdown';
+import { dropIn } from "./animations";
+import { IModal } from "./types";
 
 
-const dropIn = {
-    hidden: {
-      y: "-100vh",
-      opacity: 0,
-    },
-    visible: {
-      y: "0",
-      opacity: 1,
-      transition: {
-        duration: 0.1,
-        type: "spring",
-        damping: 25,
-        stiffness: 500,
-      },
-    },
-    exit: {
-      y: "100vh",
-      opacity: 0,
-    },
-  };
   
 
   const Input = () => {
@@ -36,7 +18,7 @@ const dropIn = {
     );
   };
 
-const Modal = ({ handleClose, text }) => {
+const Modal = ({modalOpen,handleClose, text }: IModal) => {
 
   const [dropdown, setDropdown] = useState({options: [{name: 'Bold', id: 1},{name: 'Underline', id: 2},{name: 'Itallic', id: 3}]});
   
@@ -48,7 +30,7 @@ const Modal = ({ handleClose, text }) => {
     <div className="dropdown">
     <Multiselect
     options={dropdown.options} // Options to display in the dropdown
-     // Class name to style the dropdown
+    // Class name to style the dropdown
     //selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
     //onSelect={this.onSelect} // Function will trigger on select event
     //onRemove={this.onRemove} // Function will trigger on remove event
@@ -60,7 +42,7 @@ const Modal = ({ handleClose, text }) => {
   </>
 
   ]);
-    const onAddBtnClick = event => {
+    const onAddBtnClick = ()=> {
       setInputList(inputList.concat(<Input key={inputList.length} />));
     };
   
@@ -97,7 +79,7 @@ const Modal = ({ handleClose, text }) => {
             <p>{text}</p>
             {inputList}
             <i className="fa-solid fa-circle-xmark" onClick={handleClose}></i>
-            <input className="submit" type="submit" value="Submit" onClick={"submit"} />
+            <input className="submit" type="submit" value="Submit" onClick={()=>console.log("clicked")} />
             <input className="submit" type="submit" value="Add Field" onClick={onAddBtnClick} />
           </motion.div>
       </Backdrop>

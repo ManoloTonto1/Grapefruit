@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { variants2 } from '../Routes/Settings';
+import { INumberInput } from './types';
 
-export function NumberInput(props) {
+export function NumberInput(props: INumberInput) {
   return (
     <>
       <motion.div className='text-container' variants={variants2}>

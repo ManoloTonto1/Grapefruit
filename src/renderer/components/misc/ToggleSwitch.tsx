@@ -1,9 +1,8 @@
-import React from 'react';
 import Switch from './Switch';
 import { motion } from 'framer-motion';
 import { variants2 } from '../Routes/Settings';
-
-export function ToggleSwitch({setter, label, value}) {
+import { IToggleSwitch } from './types';
+export function ToggleSwitch({setter, label, value} : IToggleSwitch) {
   return (
     <>
     

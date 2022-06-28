@@ -1,8 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
-export function Plusbutton({click}) {
-  const hover = {
+const hover = {
     scale: 1.1,
   };
   const onclick = {
@@ -31,15 +27,10 @@ export function Plusbutton({click}) {
       transition: { duration: 0.5 }
     },
   };
-  return (
-    <motion.button className='add-button'
-    variants={fadein}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      whileHover={hover}
-      whileTap={onclick}
-      onClick={click}
-    ><i className="fa-solid fa-plus"></i></motion.button>
-  );
+  const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30
 }
+
+  export {hover,onclick,fadein,spring}

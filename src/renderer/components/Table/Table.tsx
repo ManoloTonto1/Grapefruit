@@ -50,7 +50,7 @@ const variants = {
   
 
 
-function Table({data}) {
+function Table({type, data}: ) {
   return (
     <motion.div>
         <motion.table className='table'

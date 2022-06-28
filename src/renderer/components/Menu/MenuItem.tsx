@@ -29,28 +29,16 @@ const icons = ["fa-brands fa-elementor","fa-solid fa-users","fa-solid fa-receipt
 const pages = ["dashboard","users","quotes","invoices","settings",];
 
 export const MenuItem = ({ i } : {i:any}) => {
-
-  
-  
-  
-
-  
-
-
-  
-
-
-  
   const navigate = useNavigate();
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <>
-     
+
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() =>{ 
+      onClick={() =>{
         gotoPage(`/${pages[i]}`, navigate)
       }
     }
@@ -59,6 +47,6 @@ export const MenuItem = ({ i } : {i:any}) => {
       <div className="text-placeholder" ><span className="text">{pages[i]}</span></div>
     </motion.li>
     </>
-    
+
   );
 };

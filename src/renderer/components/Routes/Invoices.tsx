@@ -1,4 +1,4 @@
-import React,{useState, useEffect, createContext, ApplicationContext} from 'react'
+import {useState, useEffect, createContext, ApplicationContext} from 'react'
 import Table from '../Table/Table'
 import { Plusbutton } from '../misc/Plusbutton'
 import Modal  from '../Modal/Modal';
@@ -6,40 +6,13 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { variants2 } from '../Table/Table';
 import DocumentModal from '../Templates/Invoices/Modal/DocumentModal';
+import { fadein, hover, onclick } from '../misc/animations';
 const fs = require('fs');
 
-function Sidebuttons({id }) {
-  const hover = {
-    scale: 1.1,
-    y: [0, -10, 8, -8,0],
-  };
-  const onclick = {
-    scale: 0.9,
-  };
-  const fadein = {
-    hidden: {
-      x: "-100vh",
-      opacity: 0,
-    },
-    visible: {
-      x: "0",
-      opacity: 1,
-      transition: {
-        duration: 1,
-        type: "spring",
-        damping: 20,
-        stiffness: 200,
-      },
-    },
-    exit: {
-      
-      x: "-100vh",
-      opacity: 0,
-      transition: { duration: 0.5 }
-    },
-  };
+function Sidebuttons({id}:{id:number}) {
 
-  const [modalOpen, setModalOpen] = useState(false);
+
+  const [ModalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
   
@@ -53,7 +26,7 @@ function Sidebuttons({id }) {
             exit="exit"
             whileHover={hover}
             whileTap={onclick}
-            className="side-button button1" onClick={()=> {console.log("i have been clicked", id); modalOpen ? close() : open()}}><i className="fa-solid fa-file-invoice"></i></motion.button>
+            className="side-button button1" onClick={()=> {console.log("i have been clicked", id); ModalOpen ? close() : open()}}><i className="fa-solid fa-file-invoice"></i></motion.button>
         <motion.button
             variants={fadein}
             initial="hidden"
@@ -61,7 +34,7 @@ function Sidebuttons({id }) {
             exit="exit"
             whileHover={hover}
             whileTap={onclick}
-            onClick="" className="side-button button2" onClick={}><i className="fa-solid fa-pencil"></i></motion.button>
+            className="side-button button2" onClick={()=>console.log("")}><i className="fa-solid fa-pencil"></i></motion.button>
         <motion.button
             variants={fadein}
             initial="hidden"
@@ -69,9 +42,9 @@ function Sidebuttons({id }) {
             exit="exit"
             whileHover={hover}
             whileTap={onclick}
-            onClick="" className="side-button button3" onClick={}><i className="fa-solid fa-trash-can"></i></motion.button>
+            className="side-button button3" onClick={()=>console.log("")}><i className="fa-solid fa-trash-can"></i></motion.button>
             <AnimatePresence>
-            {modalOpen && <DocumentModal modalOpen={modalOpen} id={id} handleClose={close} />}
+            {ModalOpen && <DocumentModal modalOpen={ModalOpen} id={id} handleClose={close} />}
             </AnimatePresence>
     </>
 
@@ -82,7 +55,7 @@ function Sidebuttons({id }) {
 
 
 
-export const ApplicationContext = createContext();
+const ApplicationContext = createContext();
 function Invoices() {
 
   // Start the context Hook
@@ -148,3 +121,4 @@ function Invoices() {
 }
 
 export default Invoices
+export{ApplicationContext}

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { spring } from "./animations";
 
-function Switch({value,setter}) {
+function Switch({value,setter}: {value:boolean, setter: (e:boolean)=>void}) {
   const [isOn, setIsOn] = useState(value);
   const toggleSwitch = () => {setIsOn(!isOn); setter(!isOn)};
   
@@ -14,10 +14,6 @@ function Switch({value,setter}) {
     );
   }
   
-  const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 30
-}
+
 
 export default Switch

@@ -1,8 +1,8 @@
-import React from 'react'
 import { motion } from 'framer-motion';
 import { variants2 } from '../Routes/Settings';
+import { IDropdown } from './types';
 
-function DropDown(props) {
+function DropDown(props:IDropdown) {
   return (
     <>
     <motion.div className='text-container' variants={variants2}>
